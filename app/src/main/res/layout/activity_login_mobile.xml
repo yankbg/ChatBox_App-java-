@@ -85,7 +85,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ccp_showNameCode="false"
-            android:id="@+id/login_ccp"/>
+            android:id="@+id/login_ccp"
+            android:background="@drawable/edt_round_corner"
+            android:textColor="@color/black"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +97,8 @@
             android:layout_margin="10dp"
             android:background="@drawable/edt_round_corner"
             android:elevation="5dp"
-            android:id="@+id/login_mobile"/>
+            android:id="@+id/login_mobile"
+            android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
