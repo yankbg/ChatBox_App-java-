@@ -54,6 +54,7 @@ public class LoginOtp extends AppCompatActivity {
             signIn(credential);
             setInprogress(true);
         });
+        etvresendotp.setOnClickListener(v -> sendOtp(phoneNumber,true));
 
     }
 
@@ -133,6 +134,14 @@ public class LoginOtp extends AppCompatActivity {
             @Override
             public void run() {
                 timeoutSeconds--;
+                etvresendotp.setText("Resend OTP in "+timeoutSeconds+" seconds");
+                if(timeoutSeconds <=0){
+                    timeoutSeconds = 60L;
+                    timer.cancel();
+                    runOnUiThread(() -> {
+                        etvresendotp.setEnabled(true);
+                    });
+                }
 
 
             }
