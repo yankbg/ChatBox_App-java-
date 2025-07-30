@@ -60,6 +60,7 @@
         android:padding="8dp">
 
         <EditText
+            android:id="@+id/chat_message"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_centerInParent="true"
@@ -70,10 +71,9 @@
             android:layout_toLeftOf="@id/img_send_btn"
             android:background="@drawable/edt_round_corner"
             android:elevation="4dp"
-            android:hint="Ask your Question here"
+            android:hint="Write your Message"
             android:padding="10dp"
-            android:textColor="@color/black"
-            android:id="@+id/chat_message"/>
+            android:textColor="@color/black" />
 
         <ImageButton
             android:id="@+id/img_send_btn"
