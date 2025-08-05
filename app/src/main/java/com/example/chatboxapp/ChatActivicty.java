@@ -2,6 +2,7 @@ package com.example.chatboxapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -11,14 +12,18 @@ import android.widget.TextView;
 
 import com.example.chatboxapp.Util.FirebaseUtil;
 import com.example.chatboxapp.Util.Utils;
+import com.example.chatboxapp.adapter.ChatRecyclerAdapter;
+import com.example.chatboxapp.adapter.SearchUserRecyclerAdapter;
 import com.example.chatboxapp.model.ChatMessageModel;
 import com.example.chatboxapp.model.UserModel;
 import com.example.chatboxapp.model.chatroomModel;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.Arrays;
 
@@ -27,6 +32,7 @@ public class ChatActivicty extends AppCompatActivity {
     UserModel otherUser;
     String chatroomId;
     chatroomModel chatroommodel;
+    ChatRecyclerAdapter adapter;
     ImageButton sendBtn,backBtn;
     TextView otherUserName;
     EditText chat_msg_send;
@@ -55,6 +61,52 @@ public class ChatActivicty extends AppCompatActivity {
             sendMessageToUser(msg);
         });
         getOnCreateChatroomModel();
+        setUprecyclerView();
+    }
+    void setUprecyclerView(){
+        Query query= FirebaseUtil.getChatMessageReference(chatroomId)
+                .orderBy("timestamp", Query.Direction.DESCENDING);
+
+        FirestoreRecyclerOptions<ChatMessageModel> options = new FirestoreRecyclerOptions.Builder<ChatMessageModel>()
+                .setQuery(query,ChatMessageModel.class).build();
+
+        adapter = new ChatRecyclerAdapter(options,getApplicationContext());
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setReverseLayout(true);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                recyclerView.smoothScrollToPosition(0);
+            }
+        });
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(adapter != null){
+            adapter.startListening();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(adapter != null){
+            adapter.stopListening();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adapter != null){
+            adapter.startListening();
+        }
     }
     void sendMessageToUser(String msg){
 
