@@ -25,7 +25,6 @@
             android:id="@+id/other_user"/>
 
         <include
-            android:id="@+id/pic_profile"
             layout="@layout/profile_pic_view"
             android:layout_width="52dp"
             android:layout_height="52dp"
@@ -34,7 +33,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@id/back_btn" />
+            android:id="@+id/pic_profile"
+            android:layout_toRightOf="@id/back_btn"
+            />
         <ImageButton
             android:layout_width="32dp"
             android:layout_height="32dp"

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatboxapp.ChatActivicty;
 import com.example.chatboxapp.R;
 import com.example.chatboxapp.Util.FirebaseUtil;
@@ -37,6 +38,16 @@ public class RecentChatRecyclerAdapter extends FirestoreRecyclerAdapter<chatroom
                     if(task.isSuccessful()){
                         boolean lastMsgSentByMe = model.getLastmessage().equals(FirebaseUtil.currentUserid());
                         UserModel otherUserModel = task.getResult().toObject(UserModel.class);
+                        String imageUrl = otherUserModel.getProfileImageUrl();
+                        if (imageUrl != null && !imageUrl.isEmpty()) {
+
+                            Glide.with(context)
+                                    .load(imageUrl)
+                                    .placeholder(R.drawable.default_profile)
+                                    .error(R.drawable.error_profile)
+                                    .circleCrop()
+                                    .into(holder.profilepic);
+                        }
                         holder.usernameText.setText(otherUserModel.getUsername());
                         if(lastMsgSentByMe){
                             holder.lastMessageText.setText("You: "+model.getLastMsg());

@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatboxapp.Util.FirebaseUtil;
 import com.example.chatboxapp.Util.Utils;
 import com.example.chatboxapp.adapter.ChatRecyclerAdapter;
@@ -37,6 +39,7 @@ public class ChatActivicty extends AppCompatActivity {
     TextView otherUserName;
     EditText chat_msg_send;
     RecyclerView recyclerView;
+    ImageView profilepic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +53,18 @@ public class ChatActivicty extends AppCompatActivity {
         otherUserName = findViewById(R.id.other_user);
         chat_msg_send = findViewById(R.id.chat_message);
         recyclerView = findViewById(R.id.recycler_view_chat);
+        profilepic = findViewById(R.id.profile_pic_image_view);
 
+        String imageUrl = otherUser.getProfileImageUrl();
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+
+            Glide.with(this)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.default_profile)
+                    .error(R.drawable.error_profile)
+                    .circleCrop()
+                    .into(profilepic);
+        }
         backBtn.setOnClickListener(v -> onBackPressed());
         otherUserName.setText(otherUser.getUsername());
         sendBtn.setOnClickListener(v ->{

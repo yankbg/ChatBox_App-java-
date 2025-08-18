@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+<!-- Allows access to the entire external storage directory -->
+<external-path name="external_files" path="." />
+<!-- For Android Q/10+ scoped storage, allow access to app-specific external dir -->
+<external-files-path name="my_external_files" path="." />
+<!-- Optional: access to cache dir -->
+<cache-path name="cache_files" path="." />
+<!-- Optional: access to app's files dir -->
+<files-path name="my_files" path="." />
+</paths>

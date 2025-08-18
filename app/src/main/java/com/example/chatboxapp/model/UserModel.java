@@ -3,7 +3,7 @@ package com.example.chatboxapp.model;
 import com.google.firebase.Timestamp;
 
 public class UserModel {
-    private String phone,username,userId;
+    private String phone,username,userId,profileImageUrl;
     private Timestamp createdtimestamp;
 
     public UserModel() {
@@ -46,5 +46,13 @@ public class UserModel {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }

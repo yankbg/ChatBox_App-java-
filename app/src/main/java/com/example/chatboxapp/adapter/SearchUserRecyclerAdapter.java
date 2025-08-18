@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatboxapp.ChatActivicty;
 import com.example.chatboxapp.R;
 import com.example.chatboxapp.Util.FirebaseUtil;
@@ -36,6 +37,16 @@ public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<UserMode
         holder.phoneText.setText(model.getPhone());
         if(model.getUserId().equals(FirebaseUtil.currentUserid())){
             holder.usernameText.setText(model.getUsername()+ "(Me)");
+        }
+        String imageUrl = model.getProfileImageUrl();
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+
+            Glide.with(context)
+                    .load(imageUrl)
+                    .placeholder(R.drawable.default_profile)
+                    .error(R.drawable.error_profile)
+                    .circleCrop()
+                    .into(holder.profilepic);
         }
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ChatActivicty.class);
