@@ -11,10 +11,18 @@ A Java mobile chatbox app that allows users to type messages, sends them to a ch
 - Network communication using Java libraries
 
 ## Screenshots
-
+**Logins page**
 <!-- Add screenshots here if available -->
 <img width="545" height="908" alt="loginnumer" src="https://github.com/user-attachments/assets/5c10c23c-0620-430e-be11-e3816fd74025" />
+![loginotp](https://github.com/user-attachments/assets/39fce95a-0777-48c0-bb88-d6b841215cd5)
+![loginusername](https://github.com/user-attachments/assets/4d80919a-5c26-4dff-9ab3-bd205dc0e889)
 
+**recent chat Activity**
+![recentchat](https://github.com/user-attachments/assets/bc98ac98-d956-4991-b19a-d3ba8d335b88)
+**search Activity**
+![searchactivity](https://github.com/user-attachments/assets/ce381c48-3573-4eb0-b745-6709a45be9d4)
+**chat activity**
+![Uploading chatactivity.jpg…]()
 
 ## Getting Started
 
@@ -75,6 +83,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## Contact
 
 For questions or feedback, please contact [yankbg](https://github.com/yankbg).
+
 
 
 
