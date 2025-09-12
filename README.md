@@ -10,29 +10,19 @@ A Java mobile chatbox app that allows users to type messages, sends them to a ch
 - Modern Android UI using XML layouts
 - Network communication using Java libraries
 
-## Screenshots
-**Logins page**
-<!-- Add screenshots here if available -->
-<img width="305" height="350" alt="loginnumer" src="https://github.com/user-attachments/assets/5c10c23c-0620-430e-be11-e3816fd74025" />
+## 📸 App Screenshots
 
-<img width="305" height="350" alt="login-otp" src="https://github.com/user-attachments/assets/39fce95a-0777-48c0-bb88-d6b841215cd5">
+### 🔐 Login Screens
 
+| Phone Number Input | OTP Verification | OTP Confirmation |
+|--------------------|------------------|------------------|
+| ![Login screen with phone number input field](https://github.com/user-attachments/assets/5c10c23c-0620-430e-be11-e3816fd74025) | ![OTP input screen with verification prompt](https://github.com/user-attachments/assets/39fce95a-0777-48c0-bb88-d6b841215cd5) | ![OTP confirmation screen showing success message](https://github.com/user-attachments/assets/4d80919a-5c26-4dff-9ab3-bd205dc0e889) |
 
-<img width="305" height="350" alt="login-otp" src="https://github.com/user-attachments/assets/4d80919a-5c26-4dff-9ab3-bd205dc0e889"> 
+### 💬 Chat & Search Activities
 
-**recent chat Activity**
-
-<img width="305" height="350" alt="recent-chat-activity" src="https://github.com/user-attachments/assets/bc98ac98-d956-4991-b19a-d3ba8d335b88">
-
-**search Activity**
-
-<img width="305" height="350" alt="search-activity" src="https://github.com/user-attachments/assets/ce381c48-3573-4eb0-b745-6709a45be9d4">
-
-**chat activity**
-
-
-<img width="305" height="350" alt="search-activity" src="https://github.com/user-attachments/assets/f9a92411-55ce-4b4e-ac92-cade81276005">
-
+| Recent Chats | Search Screen | Chat Interface |
+|--------------|---------------|----------------|
+| ![Recent chat activity showing user and bot messages](https://github.com/user-attachments/assets/bc98ac98-d956-4991-b19a-d3ba8d335b88) | ![Search activity screen with input field and results](https://github.com/user-attachments/assets/ce381c48-3573-4eb0-b745-6709a45be9d4) | ![Chat interface with user input and bot response](https://github.com/user-attachments/assets/f9a92411-55ce-4b4e-ac92-cade81276005) |
 ## Getting Started
 
 ### Prerequisites
@@ -92,6 +82,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## Contact
 
 For questions or feedback, please contact [yankbg](https://github.com/yankbg).
+
 
 
 
