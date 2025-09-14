@@ -28,6 +28,7 @@ import com.example.chatboxapp.Util.FirebaseUtil;
 import com.example.chatboxapp.Util.Utils;
 import com.example.chatboxapp.model.UserModel;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,10 +82,7 @@ private static  String TAG = "uploag img";
         getUserData();
         updateBtn.setOnClickListener(v -> updateBtnClick());
         logoutBtn.setOnClickListener(v ->{
-            FirebaseUtil.logout();
-            Intent intent = new Intent(getContext(),SplashActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+           logoutBtnClick();
         });
         profilePic.setOnClickListener(v ->{
             ImagePicker.with(this).cropSquare().compress(512).maxResultSize(512,512)
@@ -100,6 +98,17 @@ private static  String TAG = "uploag img";
         initConfig();
 
         return view;
+    }
+
+    private void logoutBtnClick() {
+        FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                FirebaseUtil.logout();
+                Intent intent = new Intent(getContext(),SplashActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initConfig() {

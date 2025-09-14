@@ -3,7 +3,7 @@ package com.example.chatboxapp.model;
 import com.google.firebase.Timestamp;
 
 public class UserModel {
-    private String phone,username,userId,profileImageUrl;
+    private String phone,username,userId,profileImageUrl,fcmToken;
     private Timestamp createdtimestamp;
 
     public UserModel() {
@@ -14,6 +14,13 @@ public class UserModel {
         this.username = username;
         this.createdtimestamp = createdtimestamp;
         this.userId = userId;
+    }
+    public UserModel(String phone, String username, Timestamp createdtimestamp,String userId, String profileImageUrl) {
+        this.phone = phone;
+        this.username = username;
+        this.createdtimestamp = createdtimestamp;
+        this.userId = userId;
+        this.profileImageUrl = profileImageUrl;
     }
 
     public String getPhone() {
@@ -54,5 +61,13 @@ public class UserModel {
 
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
+    }
+
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
     }
 }

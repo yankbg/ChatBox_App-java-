@@ -46,7 +46,8 @@ public class SearchUserActivity extends AppCompatActivity {
     }
     void setupSearchRecyclerView(String searchname){
         Query query= FirebaseUtil.allUserCollectionReference()
-                .whereGreaterThanOrEqualTo("username",searchname);
+                .whereGreaterThanOrEqualTo("username",searchname)
+                .whereLessThanOrEqualTo("username",searchname+'\uf8ff');
 
         FirestoreRecyclerOptions<UserModel> options = new FirestoreRecyclerOptions.Builder<UserModel>()
                 .setQuery(query,UserModel.class).build();
